@@ -105,152 +105,152 @@
 
 
 
- var users = [
-    {
-    name: "peter",
-    email: "peter@gmail.com",
-    email2: "sam@gmail.com",
-    isActive: true,
-    createdAt: new Date(),
-    products:["iphone", "airpods", "macbook"],  
-    age: 56
-    },
+//  var users = [
+//     {
+//     name: "peter",
+//     email: "peter@gmail.com",
+//     email2: "sam@gmail.com",
+//     isActive: true,
+//     createdAt: new Date(),
+//     products:["iphone", "airpods", "macbook"],  
+//     age: 56
+//     },
 
-    {
-    name: "salman",
-    email: "salman@gmail.com",
-    isActive: false,
-    createdAt: new Date(), 
-    products:["tresemme", "beardo gel", "phillips led"], 
-    age: 70  
-    },
+//     {
+//     name: "salman",
+//     email: "salman@gmail.com",
+//     isActive: false,
+//     createdAt: new Date(), 
+//     products:["tresemme", "beardo gel", "phillips led"], 
+//     age: 70  
+//     },
 
-   {
-    name: "samarth",
-    email: "samarth@gmail.com",
-    isActive: false,
-    createdAt: new Date(), 
-    products:["washing machin", "vivo", "job"],  
-    age: 30
-    },
-      {
-    name: "terenaam",
-    email: "terenaam@gmail.com",
-    isActive: true,
-    createdAt: new Date(), 
-    products:["washing machin", "vivo", "job"],  
-    age: 40
-    },
-      {
-    name: "goti",
-    email: "goti@gmail.com",
-    isActive: false,
-    createdAt: new Date(), 
-    products:["washing machin", "vivo", "job"],  
-    age: 60
-    },
- ];
+//    {
+//     name: "samarth",
+//     email: "samarth@gmail.com",
+//     isActive: false,
+//     createdAt: new Date(), 
+//     products:["washing machin", "vivo", "job"],  
+//     age: 30
+//     },
+//       {
+//     name: "terenaam",
+//     email: "terenaam@gmail.com",
+//     isActive: true,
+//     createdAt: new Date(), 
+//     products:["washing machin", "vivo", "job"],  
+//     age: 40
+//     },
+//       {
+//     name: "goti",
+//     email: "goti@gmail.com",
+//     isActive: false,
+//     createdAt: new Date(), 
+//     products:["washing machin", "vivo", "job"],  
+//     age: 60
+//     },
+//  ];
 
- var newUsers = [];
- users.forEach(function(item, Index) {
-    if (item.age > 45) {
-        newUsers.push(item);
-    } else {
-        newUsers.unshift(item);
-    }
- });
- console.log(newUsers);
-
-
-// new user formate array 
-
-var users = [
-  {
-    name: "peter",
-    email: "peter@gmail.com",
-    isActive: true,
-    createdAt: new Date(),
-    products: [
-      { name: "iphone", cost: 80000 },
-      { name: "airpods", cost: 20000 },
-      { name: "macbook", cost: 150000 }
-    ],
-    age: 56
-  },
-  {
-    name: "salman",
-    email: "salman@gmail.com",
-    isActive: false,
-    createdAt: new Date(),
-    products: [
-      { name: "tresemme", cost: 300 },
-      { name: "beardo gel", cost: 250 },
-      { name: "phillips led", cost: 3000 }
-    ],
-    age: 70
-  }
-  // Add more users as needed...
-];
+//  var newUsers = [];
+//  users.forEach(function(item, Index) {
+//     if (item.age > 45) {
+//         newUsers.push(item);
+//     } else {
+//         newUsers.unshift(item);
+//     }
+//  });
+//  console.log(newUsers);
 
 
-users.forEach(function (user) {
-  var expensiveItemCost = 0;
+// // new user formate array 
 
-  user.products.forEach(function (item) {
-    if (item.cost > expensiveItemCost) {
-      expensiveItemCost = item.cost;
-      user.mostExpensiveItem = item.name;
-    }
-  });
-});
-
-console.log(users);
-
-var usersOnly = users.map(function (user, Index) {
-  delete user.items;
-  return user;
-});
-console.log(usersOnly);
-
-
-// uses.map******
-var userName = users.map(function(user, Index) {
-  return user.name;
-});
-console.log(userName);
-
-
-// filter methods not work please check this 
-
-var activeUsers = users.filter(function (user, index) {
- return user.isActive;
-});
-console.log(activeUsers);
-
-// uses find
-var singleUser = users.find(function (user, index) {
-  if (user.isActive) {
-    if (counter > 0) return true;
-  } else counter++;
-});
-console.log(singleUser);
+// var users = [
+//   {
+//     name: "peter",
+//     email: "peter@gmail.com",
+//     isActive: true,
+//     createdAt: new Date(),
+//     products: [
+//       { name: "iphone", cost: 80000 },
+//       { name: "airpods", cost: 20000 },
+//       { name: "macbook", cost: 150000 }
+//     ],
+//     age: 56
+//   },
+//   {
+//     name: "salman",
+//     email: "salman@gmail.com",
+//     isActive: false,
+//     createdAt: new Date(),
+//     products: [
+//       { name: "tresemme", cost: 300 },
+//       { name: "beardo gel", cost: 250 },
+//       { name: "phillips led", cost: 3000 }
+//     ],
+//     age: 70
+//   }
+//   // Add more users as needed...
+// ];
 
 
-// index Value findIndex 
-var userIndexValue = users.findIndex(function(user, index) {
-  return user.id === 4;
-});
-console.log(singleUser);
-console.log(userIndexValue);
+// users.forEach(function (user) {
+//   var expensiveItemCost = 0;
 
-// find users. every
-var check = users.every(function(user) {
-  return user.isActive;
-});
+//   user.products.forEach(function (item) {
+//     if (item.cost > expensiveItemCost) {
+//       expensiveItemCost = item.cost;
+//       user.mostExpensiveItem = item.name;
+//     }
+//   });
+// });
 
-var check1 = users.every(function(user) {
-  return user.isActive;
-});
+// console.log(users);
 
-console.log(check);
-console.log(check1);
+// var usersOnly = users.map(function (user, Index) {
+//   delete user.items;
+//   return user;
+// });
+// console.log(usersOnly);
+
+
+// // uses.map******
+// var userName = users.map(function(user, Index) {
+//   return user.name;
+// });
+// console.log(userName);
+
+
+// // filter methods not work please check this 
+
+// var activeUsers = users.filter(function (user, index) {
+//  return user.isActive;
+// });
+// console.log(activeUsers);
+
+// // uses find
+// var singleUser = users.find(function (user, index) {
+//   if (user.isActive) {
+//     if (counter > 0) return true;
+//   } else counter++;
+// });
+// console.log(singleUser);
+
+
+// // index Value findIndex 
+// var userIndexValue = users.findIndex(function(user, index) {
+//   return user.id === 4;
+// });
+// console.log(singleUser);
+// console.log(userIndexValue);
+
+// // find users. every
+// var check = users.every(function(user) {
+//   return user.isActive;
+// });
+
+// var check1 = users.every(function(user) {
+//   return user.isActive;
+// });
+
+// console.log(check);
+// console.log(check1);
