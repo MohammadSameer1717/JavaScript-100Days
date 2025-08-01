@@ -1,44 +1,44 @@
  
-// let h2 = document.querySelector("h2");
-// console.dir(h2.innerText);
+// // let h2 = document.querySelector("h2");
+// // console.dir(h2.innerText);
 
-// h2.innerText = innerText + "BY PETER";  //concatenate
+// // h2.innerText = innerText + "BY PETER";  //concatenate
  
-let divs = document.querySelectorAll(".box");
-let idx = 1;
+// let divs = document.querySelectorAll(".box");
+// let idx = 1;
 
-for (let div of divs) {
-   div.innerText = `new unique value ${idx}`;
-   idx++;
-}
-
-
-// divs[0].innerText = "new unique value 1";
-// divs[2].innerText = "new unique value 2";
-// divs[3].innerText = "new unique value 3";
+// for (let div of divs) {
+//    div.innerText = `new unique value ${idx}`;
+//    idx++;
+// }
 
 
-let div = document.querySelector("div");
-
-div.style.backgroundColor="green";
-div.style.backgroundColor="purple";
-// div.style.visibility = "hidden";
-
-div.style.fontSize = "25px";
-
-// div.innerText = "hello";
+// // divs[0].innerText = "new unique value 1";
+// // divs[2].innerText = "new unique value 2";
+// // divs[3].innerText = "new unique value 3";
 
 
-let newHeading = document.createElement("h1");
-newHeading.innerHTML = "<i>Hi, I am Majnu.Bhai</i>";
+// let div = document.querySelector("div");
 
-document.querySelector("body").prepend(newHeading);
+// div.style.backgroundColor="green";
+// div.style.backgroundColor="purple";
+// // div.style.visibility = "hidden";
+
+// div.style.fontSize = "25px";
+
+// // div.innerText = "hello";
 
 
-let para = document.querySelector("p");
-para.remove();    // Delete element
+// let newHeading = document.createElement("h1");
+// newHeading.innerHTML = "<i>Hi, I am Majnu.Bhai</i>";
 
-newHeading.remove();  //delete majnu bhai
+// document.querySelector("body").prepend(newHeading);
+
+
+// let para = document.querySelector("p");
+// para.remove();    // Delete element
+
+// newHeading.remove();  //delete majnu bhai
 
 // Quet 1
 let newBtn = document.createElement("button");
