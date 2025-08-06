@@ -1,17 +1,30 @@
-let btn1 = document.querySelector("#btn1");
+// // feching API
+fetch("https://jsonplaceholder.typicode.com/users")
+.then((rawdata) => {
+    console.log(rawdata);
+})
+.catch((err) => {
+    console.log(err);
+});
 
-btn1.onclick = () => {
-    console.log("btn1 was clicked");
-    let a= 25;
-    a++;
-    console.log(a);
-};
+// // feching API with JSON
+fetch("https://jsonplaceholder.typicode.com/users")
+.then((rawdata) => {
+ return rawdata.json();
+})
+.then((data) => {
+    console.log(data.result[0].name.first);
+    
+})
+.catch((err) => {
+    console.log(err);
+});
 
-btn1.onclick = () => {
-    console.log("HANDLER2");
-};
-
-let div = document.querySelector("div");
-div.onmouseover = () => {
-    console.log("you are inside div");
-};
+// feching API with JSON
+fetch("https://randomuser.me/api/?results=3")
+.then((row) => row.json())
+.then((data) => {
+    data.result.forEach(function (user) {
+        console.log(user.name);
+    });
+});
