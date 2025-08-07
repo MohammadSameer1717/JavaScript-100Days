@@ -144,58 +144,58 @@
 //    }
 
 
-// create apromise, chaning and Error Handling
-//  Consumer Code
-const cart = ["shoes", "pant", "kurta", "shirt"];
+// // create apromise, chaning and Error Handling
+// //  Consumer Code
+// const cart = ["shoes", "pant", "kurta", "shirt"];
 
-createOrder(cart) // returns a Promise
-  .then(function (orderId) {
-    console.log("Order ID:", orderId);
-    return orderId;
-  })
-  .then(function (orderId) {
-    return proceedToPayment(orderId);
-  })
-  .then(function (paymentInfo) {
-    console.log("#", paymentInfo);
-  })
-  .catch(function (err) {
-    console.log("Error:", err.message);
-  });
+// createOrder(cart) // returns a Promise
+//   .then(function (orderId) {
+//     console.log("Order ID:", orderId);
+//     return orderId;
+//   })
+//   .then(function (orderId) {
+//     return proceedToPayment(orderId);
+//   })
+//   .then(function (paymentInfo) {
+//     console.log("#", paymentInfo);
+//   })
+//   .catch(function (err) {
+//     console.log("Error:", err.message);
+//   });
 
 
-// Producer Functions
+// // Producer Functions
 
-function createOrder(cart) {
-  return new Promise(function (resolve, reject) {
-    // Validate the cart
-    if (!validateCart(cart)) {
-      const err = new Error("Cart is not valid");
-      reject(err);
-      return;
-    }
+// function createOrder(cart) {
+//   return new Promise(function (resolve, reject) {
+//     // Validate the cart
+//     if (!validateCart(cart)) {
+//       const err = new Error("Cart is not valid");
+//       reject(err);
+//       return;
+//     }
 
-    // Simulate order creation
-    const orderId = "12313241";
+//     // Simulate order creation
+//     const orderId = "12313241";
 
-    setTimeout(function () {
-      resolve(orderId);
-    }, 3000); 
-  });
-}
+//     setTimeout(function () {
+//       resolve(orderId);
+//     }, 3000); 
+//   });
+// }
 
-function proceedToPayment(orderId) {
-  return new Promise(function (resolve, reject) {
-    // Simulating payment success
-    setTimeout(() => {
-      resolve("Payment Successful for Order ID: " + orderId);
-    }, 2000);
-  });
-}
+// function proceedToPayment(orderId) {
+//   return new Promise(function (resolve, reject) {
+//     // Simulating payment success
+//     setTimeout(() => {
+//       resolve("Payment Successful for Order ID: " + orderId);
+//     }, 2000);
+//   });
+// }
 
-function validateCart(cart) {
-  return cart.length > 0;
-}
+// function validateCart(cart) {
+//   return cart.length > 0;
+// }
 
  
   
