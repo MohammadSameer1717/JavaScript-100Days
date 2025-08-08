@@ -198,4 +198,74 @@
 // }
 
  
-  
+// //   Example: Promise Creation, Chaining, and Error Handling
+// //   Step 1: Create a Promise
+// function getUser() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("User fetched");
+//       resolve({ id: 1, name: "Sameer" });
+//     }, 1000);
+//   });
+// }
+
+// function getPosts(userId) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("Posts fetched");
+//       // resolve(["Post1", "Post2"]);
+//       reject("Failed to fetch posts"); // simulate an error
+//     }, 1000);
+//   });
+// }
+
+// function getComments(post) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("Comments fetched");
+//       resolve(["Nice!", "Great!"]);
+//     }, 1000);
+//   });
+// }
+
+// getUser()
+//   .then(user => {
+//     return getPosts(user.id);
+//   })
+//   .then(posts => {
+//     return getComments(posts[0]);
+//   })
+//   .then(comments => {
+//     console.log("Comments:", comments);
+//   })
+//   .catch(error => {
+//     console.error("Error:", error);
+//   })
+//   .finally(() => {
+//     console.log("Finished (success or fail)");
+//   });
+
+// // Promises in loop
+// async function runSequentially() {
+//   for (let i = 1; i <= 3; i++) {
+//     await new Promise(res => setTimeout(res, 1000));
+//     console.log("Step", i);
+//   }
+// }
+// runSequentially();
+
+// Async/ Await withpromises
+function getData() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve ("Data received"), 1000);
+    });
+}
+async function fetchData() {
+    try {
+        const data = await getData();
+        console.log(data);
+    } catch (err) {
+        console.log(Error, err);
+    }
+}
+fetchData();
