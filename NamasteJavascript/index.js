@@ -318,3 +318,38 @@ async function placeOrder() {
 }
 
 placeOrder();
+
+// . Example — try...catch Inside
+async function fetchUser() {
+    try {
+        const response = await fetch("https://fakeapi.com/user"); // invalid URL
+        const data = await response.json();
+        console.log("User:", data);
+    } catch (error) {
+        console.error("Error occurred:", error.message);
+    }
+}
+
+fetchUser();
+console.log("Script continues...");
+
+// Example — .catch() Outside
+async function fetchUser() {
+    const response = await fetch("https://fakeapi.com/user");
+    const data = await response.json();
+    return data;
+}
+fetchUser()
+    .then(user => console.log("User:", user))
+    .catch(err => console.error("Error outside:", err.message));
+
+    
+// Handling Multiple Awaits
+async function processOrder() {
+  try {
+    const order = await createOrder();
+    const payment = await proceedToPayment
+  } catch (err) {
+    
+  }
+}
