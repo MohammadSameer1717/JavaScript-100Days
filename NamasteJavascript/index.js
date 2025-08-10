@@ -319,7 +319,8 @@ async function placeOrder() {
 
 placeOrder();
 
-// . Example — try...catch Inside
+
+. Example — try...catch Inside
 async function fetchUser() {
     try {
         const response = await fetch("https://fakeapi.com/user"); // invalid URL
@@ -353,3 +354,73 @@ async function processOrder() {
     
   }
 }
+
+// Interview parpas about talk Using Promise Chaining + promise APIs
+const cart = ["shoes", "pants", "kurta", "shirt"];
+
+// ----- PRODUCER FUNCTIONS -----
+function createOrder(cart) {
+    return new Promise((resolve, reject) => {
+        console.log("Creating order...");
+        if (!validateCart(cart)) {
+            return reject(new Error("Cart is not valid"));
+        }
+        const orderId = "ORD" + Math.floor(Math.random() * 10000);
+        setTimeout(() => resolve(orderId), 2000);
+    });
+}
+
+function proceedToPayment(orderId) {
+    return new Promise((resolve) => {
+        console.log(`Processing payment for ${orderId}...`);
+        setTimeout(() => resolve("Payment Successful"), 1500);
+    });
+}
+
+function sendEmail(orderId) {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(`Email sent for order ${orderId}`), 1000);
+    });
+}
+
+function updateStock() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => reject("Stock update failed"), 500);
+    });
+}
+
+function generateInvoice(orderId) {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(`Invoice generated for ${orderId}`), 1200);
+    });
+}
+
+function validateCart(cart) {
+    return cart.length > 0;
+}
+
+// ----- CONSUMER USING PROMISE CHAINING -----
+createOrder(cart)
+    .then((orderId) => {
+        console.log("Order created:", orderId);
+        return proceedToPayment(orderId)
+            .then((paymentInfo) => ({ orderId, paymentInfo }));
+    })
+    .then(({ orderId, paymentInfo }) => {
+        console.log(paymentInfo);
+        // Running multiple promises in parallel
+        return Promise.allSettled([
+            sendEmail(orderId),
+            updateStock(),
+            generateInvoice(orderId)
+        ]);
+    })
+    .then((results) => {
+        console.log("Parallel Tasks Results:", results);
+    })
+    .catch((err) => {
+        console.error("Error:", err.message);
+    })
+    .finally(() => {
+        console.log("Order process completed");
+    });
