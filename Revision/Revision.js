@@ -126,3 +126,23 @@ createOrder(cart)
 .then((orderId) => proceedTopayment(orderId))
 .then((paymentInfo) => showOrderSummary(paymentInfo))
 .then((paymentInfo) => updateWalletBalance(paymentInfo));
+
+// Costom promises
+const myPromise = new Promise((resolve, reject) => {
+  const success = true;
+  if (success) {
+    resolve("Resolved!");
+  } else {
+    reject("Error occurred");
+  }
+});
+
+myPromise
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+// create apromise, chaning and Error Handling
+const cart = ["shoes", "pant", "kurta", "shirt"];
+const promise = createOrder(cart);  //OrderId
+console.log(promise);
+
