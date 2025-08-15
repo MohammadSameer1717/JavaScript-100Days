@@ -109,3 +109,20 @@ fetchData()
   .then(result => console.log("Success:", result))
   .catch(error => console.log("Error:", error))
   .finally(() => console.log("Done"));
+
+// Order
+createOrder(cart)
+.then(function (orderId) {
+ return proceedTopayment(orderId);
+})
+.then(function (paymentInfo) {
+ return proceedTopayment(paymentInfo);
+})
+.then(function (paymentInfo) {
+ return proceedTopayment(paymentInfo);
+});
+
+createOrder(cart)
+.then((orderId) => proceedTopayment(orderId))
+.then((paymentInfo) => showOrderSummary(paymentInfo))
+.then((paymentInfo) => updateWalletBalance(paymentInfo));
