@@ -146,3 +146,31 @@ const cart = ["shoes", "pant", "kurta", "shirt"];
 const promise = createOrder(cart);  //OrderId
 console.log(promise);
 
+ promise.then(function(orderId) {
+    console.log(orderId);
+    
+    // proceedToPayment(orderId);
+})
+
+// Producer: A function that returns a Promise
+function fetchData(success) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (success) {
+        resolve("Data fetched successfully!");
+      } else {
+        reject(new Error("Failed to fetch data."));
+      }
+    }, 2000);
+  });
+}
+
+// Consumer: Using .then() and .catch()
+fetchData(true)   // try false also!
+  .then(result => {
+    console.log("Result:", result);
+  })
+  .catch(error => {
+    console.error("Error:", error.message);
+  });
+
