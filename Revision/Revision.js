@@ -174,3 +174,22 @@ fetchData(true)   // try false also!
     console.error("Error:", error.message);
   });
 
+
+// create apromise, chaning and Error Handling
+//  Consumer Code
+const cart = ["shoes", "pant", "kurta", "shirt"];
+
+createOrder(cart) // returns a Promise
+  .then(function (orderId) {
+    console.log("Order ID:", orderId);
+    return orderId;
+  })
+  .then(function (orderId) {
+    return proceedToPayment(orderId);
+  })
+  .then(function (paymentInfo) {
+    console.log("#", paymentInfo);
+  })
+  .catch(function (err) {
+    console.log("Error:", err.message);
+  });
