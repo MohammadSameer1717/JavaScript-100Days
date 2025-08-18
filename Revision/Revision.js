@@ -193,3 +193,22 @@ createOrder(cart) // returns a Promise
   .catch(function (err) {
     console.log("Error:", err.message);
   });
+
+  // production function 
+  function createOrder(cart) {
+  return new Promise(function (resolve, reject) {
+    // Validate the cart
+    if (!validateCart(cart)) {
+      const err = new Error("Cart is not valid");
+      reject(err);
+      return;
+    }
+
+    // Simulate order creation
+    const orderId = "12313241";
+
+    setTimeout(function () {
+      resolve(orderId);
+    }, 3000); 
+  });
+}
