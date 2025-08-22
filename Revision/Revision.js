@@ -213,9 +213,28 @@
 //   });
 // }
 
-// Revision this.keyword
-function test() {
- console.log(this);
-}
-test();
-test(21);
+// // Revision this.keyword
+// function test() {
+//  console.log(this);
+// }
+// test();
+// test(21);
+
+// Q: 2 how does this work inside an object method?
+const person = {
+    name: "peter",
+    greet () {
+        console.log("Hello, " + this.name);
+    },
+};
+person.greet ();
+
+// Q:3 what happens if you assign a method to another method
+ const person1 = {
+  name:"peterking",
+  greet() {
+    console.log("Hello," + this.person1);
+   },
+};
+const persongreetFn  = person.greet;
+person.greet();
