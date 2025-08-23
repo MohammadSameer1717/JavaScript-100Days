@@ -246,3 +246,44 @@ const obj2 = {
     name:"peter",
 }
 console.log( obj1 == obj2);
+
+// ES 5 Method
+ function person(name) {
+    this.name = name;
+    this.sayname = function () {
+        setTimeout(function () {
+            console.log(this.name);
+            
+        }, 2000);
+    };
+ };
+ new person("peter").sayname();
+output = undefined
+
+
+//  Fix in ES5 (using self = this or bind()):
+
+function person(name) {
+    var self = this;
+    this.name = name;
+    this.sayname = function () {
+        setTimeout (function () {
+            console.log(self.name);
+        }, 2000);
+    };
+};
+new person("peter").sayname();
+// output = peter
+
+// ES 6 Example
+function person(name) {
+    this.name = name;
+    this.sayname = function () {
+        setTimeout (() => {
+            console.log(this.name);
+            
+        },2000);
+    };
+};
+
+new person("peter").sayname();
