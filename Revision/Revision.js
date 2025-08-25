@@ -331,3 +331,41 @@ const result = outer();
 result[0](); 
 result[1](); 
 result[2](); 
+
+// Example 2: Closure with Parameters
+function multiplier(x) {
+  return function(y) {
+    return x * y; 
+  };
+}
+
+const double = multiplier(2);
+console.log(double(5));  //10
+
+const triple = multiplier(3);
+console.log(triple(5)); 
+
+
+// Example 3: Private Data using Closures
+function createBankAccount(initialBalance) {
+  let balance = initialBalance;
+
+  return {
+    deposit: function(amount) {
+      balance += amount;
+      console.log(`Deposited: ${amount}, Balance: ${balance}`);
+    },
+    withdraw: function(amount) {
+      if (amount <= balance) {
+        balance -= amount;
+        console.log(`Withdrew: ${amount}, Balance: ${balance}`);
+      } else {
+        console.log("Insufficient balance!");
+      }
+    }
+  };
+}
+
+const account = createBankAccount(100);
+account.deposit(50); 
+account.withdraw(70);  
