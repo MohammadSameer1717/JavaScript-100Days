@@ -369,3 +369,15 @@ function createBankAccount(initialBalance) {
 const account = createBankAccount(100);
 account.deposit(50); 
 account.withdraw(70);  
+
+
+// Reverse String 
+function reverseString(str) {
+  let result = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i];
+  }
+  return result;
+}
+
+console.log(reverseString("JavaScript")); // tpircSavaJ
