@@ -381,3 +381,9 @@ function reverseString(str) {
 }
 
 console.log(reverseString("JavaScript")); // tpircSavaJ
+
+const obj = {
+  name: "Sameer",
+  arrow: () => console.log(this.name)
+};
+obj.arrow(); // undefined (takes global `this`)
