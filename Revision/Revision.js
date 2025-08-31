@@ -198,21 +198,21 @@ console.log("End");
 // Callback Hell (Nested API simulation)
 function getUser(callback) {
   setTimeout(() => {
-    console.log("👤 User fetched");
+    console.log("User fetched");
     callback();
   }, 1000);
 }
 
 function getPosts(callback) {
   setTimeout(() => {
-    console.log("📝 Posts fetched");
+    console.log("Posts fetched");
     callback();
   }, 1000);
 }
 
 function getComments() {
   setTimeout(() => {
-    console.log("💬 Comments fetched");
+    console.log("Comments fetched");
   }, 1000);
 }
 // Nested callbacks → Callback Hell
@@ -228,7 +228,7 @@ function fetchData(callback) {
   let error = true;
 
   if (error) {
-    callback("❌ Something went wrong", null);
+    callback(" Something went wrong", null);
   } else {
     callback(null, { id: 1, name: "Sameer" });
   }
@@ -241,3 +241,87 @@ fetchData((err, data) => {
     console.log("Data:", data);
   }
 });
+
+
+// Basic Promise (Resolve / Reject)
+let promise = new Promise((resolve, reject) => {
+  let success = true;
+
+  if (success) {
+    resolve("Task completed!");
+  } else {
+    reject("Task failed!");
+  }
+});
+
+promise
+  .then(result => console.log(result))   // success case
+  .catch(error => console.log(error))    // failure case
+  .finally(() => console.log("✨ Done!"));
+
+
+//   Simulating API Call with setTimeout
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let data = { id: 101, name: "Sameer" };
+      resolve(data);
+    }, 2000);
+  });
+}
+
+fetchData()
+  .then(res => console.log("Data received:", res))
+  .catch(err => console.log("Error:", err));
+
+//   Promise Chain (Avoid callback hell)
+new Promise(resolve => resolve(5))
+  .then(num => {
+    console.log(num); // 5
+    return num * 2;
+  })
+  .then(num => {
+    console.log(num); // 10
+    return num * 3;
+  })
+  .then(num => {
+    console.log(num); // 30
+  });
+
+
+// Promise.all()
+let p1 = Promise.resolve("First done");
+let p2 = new Promise(res => setTimeout(() => res("Second done"), 1000));
+let p3 = Promise.resolve("Third done");
+
+Promise.all([p1, p2, p3])
+  .then(results => console.log("All results:", results))
+  .catch(err => console.log("Error in one:", err));
+
+// Promise.race
+let fast = new Promise(res => setTimeout(() => res("Fast"), 500));
+let Slow = new Promise(res => setTimeout(() => res("Slow"), 2000));  
+
+promise.race([fast, Slow]).then(result => console.log(result));
+
+// Promise.allSettled()
+let p1 = Promise.resolve("Success");
+let p2 = Promise.reject("Failure");
+
+Promise.allSettled([p1, p2]).then(results => console.log(results));
+// Output
+[
+  { status: "fulfilled", value: "Success" },
+  { status: "rejected", reason: "Failure" }
+]
+
+// Promise.any()
+let p1 = Promise.reject("Fail 1");
+let p2 = new Promise(res => setTimeout(() => res("Success!"), 1000));
+let p3 = Promise.reject("Fail 2");
+
+Promise.any([p1, p2, p3])
+  .then(result => console.log(result)) // "Success!"
+  .catch(err => console.log("All failed:", err));
+
+
