@@ -379,3 +379,94 @@ async function runParallel() {
   console.log("All Done:", results);
 }
 runParallel();
+
+// How to fetch API calls Effectively.All Q/A Only basic on Fetch API
+// Basic GET Request
+async function getUsers() {
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/users");
+    
+    if (!response.ok) throw new Error("❌ Failed to fetch");
+
+    let data = await response.json();
+    console.log("✅ Users:", data);
+  } catch (err) {
+    console.error("Error:", err.message);
+  }
+}
+getUsers();
+
+
+// POST Request (Send Data)
+async function createUser() {
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "Sameer", email: "sameer@test.com" })
+    });
+
+    let data = await response.json();
+    console.log(" User Created:", data);
+  } catch (err) {
+    console.error("Error:", err);
+  }
+}
+createUser();
+
+// Parallel API Calls with Promise.all
+async function fetchParallel() {
+  try {
+    let [users, posts] = await Promise.all([
+      fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()),
+      fetch("https://jsonplaceholder.typicode.com/posts").then(res => res.json())
+    ]);
+
+    console.log("✅ Users:", users.length, "✅ Posts:", posts.length);
+  } catch (err) {
+    console.error("Error:", err);
+  }
+}
+fetchParallel();
+
+// Retry Logic (Simple Example)
+async function fetchWithRetry(url, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      let res = await fetch(url);
+      if (res.ok) return await res.json();
+      throw new Error("❌ API failed");
+    } catch (err) {
+      console.log(`Retry ${i + 1} failed...`);
+      if (i === retries - 1) throw err;
+    }
+  }
+}
+
+fetchWithRetry("https://jsonplaceholder.typicode.com/users")
+  .then(data => console.log("✅ Data:", data))
+  .catch(err => console.error("Final Error:", err));
+
+//   Cancel API Request (AbortController)
+const controller = new AbortController();
+
+async function fetchData() {
+  try {
+    let res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      signal: controller.signal
+    });
+    let data = await res.json();
+    console.log("Data:", data);
+  } catch (err) {
+    if (err.name === "AbortError") {
+      console.log("Request Cancelled");
+    } else {
+      console.error("Error:", err);
+    }
+  }
+}
+
+// Cancel the request after 1s
+setTimeout(() => controller.abort(), 1000);
+
+fetchData();
