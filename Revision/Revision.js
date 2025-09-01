@@ -386,10 +386,10 @@ async function getUsers() {
   try {
     let response = await fetch("https://jsonplaceholder.typicode.com/users");
     
-    if (!response.ok) throw new Error("❌ Failed to fetch");
+    if (!response.ok) throw new Error("Failed to fetch");
 
     let data = await response.json();
-    console.log("✅ Users:", data);
+    console.log("Users:", data);
   } catch (err) {
     console.error("Error:", err.message);
   }
@@ -422,7 +422,7 @@ async function fetchParallel() {
       fetch("https://jsonplaceholder.typicode.com/posts").then(res => res.json())
     ]);
 
-    console.log("✅ Users:", users.length, "✅ Posts:", posts.length);
+    console.log("Users:", users.length, "Posts:", posts.length);
   } catch (err) {
     console.error("Error:", err);
   }
@@ -435,7 +435,7 @@ async function fetchWithRetry(url, retries = 3) {
     try {
       let res = await fetch(url);
       if (res.ok) return await res.json();
-      throw new Error("❌ API failed");
+      throw new Error("API failed");
     } catch (err) {
       console.log(`Retry ${i + 1} failed...`);
       if (i === retries - 1) throw err;
@@ -444,7 +444,7 @@ async function fetchWithRetry(url, retries = 3) {
 }
 
 fetchWithRetry("https://jsonplaceholder.typicode.com/users")
-  .then(data => console.log("✅ Data:", data))
+  .then(data => console.log("Data:", data))
   .catch(err => console.error("Final Error:", err));
 
 //   Cancel API Request (AbortController)
@@ -468,5 +468,62 @@ async function fetchData() {
 
 // Cancel the request after 1s
 setTimeout(() => controller.abort(), 1000);
-
 fetchData();
+
+// This.KeyWord All Ques / Ans 
+// Global Scope
+console.log(this); 
+// Browser → window
+// Node.js → {}
+
+
+// Inside Object Method
+const user = {
+  name: "Sameer",
+  greet: function() {
+    console.log("Hello, " + this.name);
+  }
+};
+user.greet(); // Hello, Sameer
+
+
+// Arrow Function (Lexical this)
+const obj = {
+  name: "Remax",
+  greet: () => {
+    console.log("Hi " + this.name);
+  }
+};
+obj.greet(); // Hi undefined (because arrow doesn’t have its own `this`)
+
+
+// Class Example
+class Car {
+  constructor(brand) {
+    this.brand = brand;
+  }
+  show() {
+    console.log("Car: " + this.brand);
+  }
+}
+const c1 = new Car("BMW");
+c1.show(); // Car: BMW
+
+
+// Call, Apply, Bind
+function greet(city) {
+  console.log(`Hi ${this.name} from ${city}`);
+}
+const person = { name: "Sameer" };
+
+greet.call(person, "Delhi");  // Hi Sameer from Delhi
+greet.apply(person, ["Mumbai"]); // Hi Sameer from Mumbai
+const newFn = greet.bind(person, "Lucknow");
+newFn(); // Hi Sameer from Lucknow
+
+
+// Event Listener
+document.querySelector("button").addEventListener("click", function() {
+  console.log(this); // Button element
+});
+
