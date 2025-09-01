@@ -1,328 +1,328 @@
-// //  if Condition
-//  let age = 25;
-//  if (age >= 20) {
-//  console.log("you can vote");
-//  }
+//  if Condition
+ let age = 25;
+ if (age >= 20) {
+ console.log("you can vote");
+ }
  
-// // Example: 2 if-else
-//   age = 15;
-// if (age >= 20) {
-//   console.log("you can be Vote now");
-// } else {
-//   console.log("you cannot be Vote now ");
-// };
+// Example: 2 if-else
+  age = 15;
+if (age >= 20) {
+  console.log("you can be Vote now");
+} else {
+  console.log("you cannot be Vote now ");
+};
 
-// // Example: 3 if-else if-else
-//   let marks = 77;
-// if (marks >= 90) {
-//   console.log("Grade A");
-// }  else if (marks >= 75) {
-//   console.log("grade B");
-// } else if (marks >= 50) {
-//   console.log("Grade C");
+// Example: 3 if-else if-else
+  let marks = 77;
+if (marks >= 90) {
+  console.log("Grade A");
+}  else if (marks >= 75) {
+  console.log("grade B");
+} else if (marks >= 50) {
+  console.log("Grade C");
   
-// } else {
-//   console.log("fail");
+} else {
+  console.log("fail");
   
-// };
+};
 
-// // Example 4: Nested if
-// let age = 25;
-// let hasID = true;
+// Example 4: Nested if
+let age = 25;
+let hasID = true;
 
-// if (age >= 18) {
-//   if (hasID) {
-//     console.log("You can enter the club");
-//   } else {
-//     console.log("ID required");
-//   }
-// } else {
-//   console.log("You are underage");
-// }
+if (age >= 18) {
+  if (hasID) {
+    console.log("You can enter the club");
+  } else {
+    console.log("ID required");
+  }
+} else {
+  console.log("You are underage");
+}
 
-// // Example: 5 Switch case
-// let color = "green";
+// Example: 5 Switch case
+let color = "green";
 
-// switch (color) {
-//   case "red":
-//     console.log("Stop");
-//     break;
-//   case "yellow":
-//     console.log("Wait");
-//     break;
-//   case "green":
-//     console.log("Go");
-//     break;
-//   default:
-//     console.log("Invalid color");
-// }
+switch (color) {
+  case "red":
+    console.log("Stop");
+    break;
+  case "yellow":
+    console.log("Wait");
+    break;
+  case "green":
+    console.log("Go");
+    break;
+  default:
+    console.log("Invalid color");
+}
 
-// // Exercise 1: Fibonacci Series (0 1 1 2 3 5 …)
+// Exercise 1: Fibonacci Series (0 1 1 2 3 5 …)
 
-// let n = 10; 
-// let a = 0, b = 1;
+let n = 10; 
+let a = 0, b = 1;
 
-// console.log("Fibonacci Series:");
-// for (let i = 1; i <= n; i++) {
-//   console.log(a);
-//   let next = a + b;
-//   a = b;
-//   b = next;
-// }
+console.log("Fibonacci Series:");
+for (let i = 1; i <= n; i++) {
+  console.log(a);
+  let next = a + b;
+  a = b;
+  b = next;
+}
 
-// // Exercise 2: Factorial (n!)
-// let num = 5;
-// let fact = 1;
+// Exercise 2: Factorial (n!)
+let num = 5;
+let fact = 1;
 
-// for (let i = 1; i <= num; i++) {
-//   fact *= i;
-// }
-// console.log("Factorial of", num, "=", fact); 
+for (let i = 1; i <= num; i++) {
+  fact *= i;
+}
+console.log("Factorial of", num, "=", fact); 
 
-// // Exercise 3: Prime Numbers up to n
-// let n = 20;
+// Exercise 3: Prime Numbers up to n
+let n = 20;
 
-// console.log("Prime numbers up to", n, ":");
+console.log("Prime numbers up to", n, ":");
 
-// for (let i = 2; i <= n; i++) {
-//   let isPrime = true;
+for (let i = 2; i <= n; i++) {
+  let isPrime = true;
   
-//   for (let j = 2; j <= Math.sqrt(i); j++) {
-//     if (i % j === 0) {
-//       isPrime = false;
-//       break;
-//     }
-//   }
+  for (let j = 2; j <= Math.sqrt(i); j++) {
+    if (i % j === 0) {
+      isPrime = false;
+      break;
+    }
+  }
   
-//   if (isPrime) {
-//     console.log(i);
-//   }
-// }
+  if (isPrime) {
+    console.log(i);
+  }
+}
 
-// // All Qeustion in Closure like Data hiding, Private Variable and function foctories
-// function counter () {
-// let count = 0;
-// return function () {
-//   count++;
-//   return count;
-// };
-// }
-// const C = counter();
-// console.log(C());
-// console.log(C());
-// console.log(C());
+// All Qeustion in Closure like Data hiding, Private Variable and function foctories
+function counter () {
+let count = 0;
+return function () {
+  count++;
+  return count;
+};
+}
+const C = counter();
+console.log(C());
+console.log(C());
+console.log(C());
 
-// // 2nd Example Private Variable
+// 2nd Example Private Variable
 
-// function bankAccount(initialBalance) {
-//   let balance = initialBalance; // private variable
+function bankAccount(initialBalance) {
+  let balance = initialBalance; // private variable
 
-//   return {
-//     deposit: function (amount) {
-//       balance += amount;
-//       return balance;
-//     },
-//     withdraw: function (amount) {
-//       if (amount <= balance) {
-//         balance -= amount;
-//       } else {
-//         console.log("Insufficient funds!");
-//       }
-//       return balance;
-//     },
-//     getBalance: function () {
-//       return balance;
-//     }
-//   };
-// }
+  return {
+    deposit: function (amount) {
+      balance += amount;
+      return balance;
+    },
+    withdraw: function (amount) {
+      if (amount <= balance) {
+        balance -= amount;
+      } else {
+        console.log("Insufficient funds!");
+      }
+      return balance;
+    },
+    getBalance: function () {
+      return balance;
+    }
+  };
+}
 
-// const myAccount = bankAccount(1000);
-// console.log(myAccount.deposit(500));  // 1500
-// console.log(myAccount.withdraw(200)); // 1300
-// console.log(myAccount.getBalance());  // 1300
-// //Hinglish: Balance ko direct change nahi kar sakte, 
-// // sirf deposit/withdraw methods ke through hi. Yeh private variable hai.
+const myAccount = bankAccount(1000);
+console.log(myAccount.deposit(500));  // 1500
+console.log(myAccount.withdraw(200)); // 1300
+console.log(myAccount.getBalance());  // 1300
+//Hinglish: Balance ko direct change nahi kar sakte, 
+// sirf deposit/withdraw methods ke through hi. Yeh private variable hai.
 
-// // 3rd Function Factory (Multiplier Example)
-// function multiplier(factor) {
-//   return function (number) {
-//     return number * factor;
-//   };
-// }
+// 3rd Function Factory (Multiplier Example)
+function multiplier(factor) {
+  return function (number) {
+    return number * factor;
+  };
+}
 
-// const double = multiplier(2);
-// const triple = multiplier(3);
+const double = multiplier(2);
+const triple = multiplier(3);
 
-// console.log(double(5)); // 10
-// console.log(triple(5)); // 15
-// // Hinglish: Ek hi factory se double, 
-// // triple jaisi customized functions ban gaye.
+console.log(double(5)); // 10
+console.log(triple(5)); // 15
+// Hinglish: Ek hi factory se double, 
+// triple jaisi customized functions ban gaye.
 
-// // 4rd “Remax Variation” (Event Listener Closure)
-// function attachEvent() {
-//   let count = 0;
-//   document.getElementById("btn").addEventListener("click", function () {
-//     count++;
-//     console.log("Button clicked:", count, "times");
-//   });
-// }
-// attachEvent();
-// // Button click karne par closure count ko yaad rakhta hai har click ke liye.
-
-
-// All Question are Callback Function like this one Basic Callback
-// function greet(name, Callback) {
-// console.log("Hello" + name);
-// Callback();
-// }
-// function sayBye () {
-//   console.log("GoodBye!");
-// }
-// greet("Sameer", sayBye);
-
-// // Synchronous Callback (Array Methods)
-// let numbers = [1, 2, 3, 4];
-// numbers.forEach(num => {
-//   console.log("Number:", num);
-// });
-
-// // Asynchronous Callback (setTimeout)
-// console.log("Start");
-
-// setTimeout(() => {
-//   console.log("This runs after 2 seconds");
-// }, 2000);
-
-// console.log("End");
-
-// // Callback Hell (Nested API simulation)
-// function getUser(callback) {
-//   setTimeout(() => {
-//     console.log("User fetched");
-//     callback();
-//   }, 1000);
-// }
-
-// function getPosts(callback) {
-//   setTimeout(() => {
-//     console.log("Posts fetched");
-//     callback();
-//   }, 1000);
-// }
-
-// function getComments() {
-//   setTimeout(() => {
-//     console.log("Comments fetched");
-//   }, 1000);
-// }
-// // Nested callbacks → Callback Hell
-// getUser(() => {
-//   getPosts(() => {
-//     getComments();
-//   });
-// });
+// 4rd “Remax Variation” (Event Listener Closure)
+function attachEvent() {
+  let count = 0;
+  document.getElementById("btn").addEventListener("click", function () {
+    count++;
+    console.log("Button clicked:", count, "times");
+  });
+}
+attachEvent();
+// Button click karne par closure count ko yaad rakhta hai har click ke liye.
 
 
-// // Error Handling in Callbacks
-// function fetchData(callback) {
-//   let error = true;
+All Question are Callback Function like this one Basic Callback
+function greet(name, Callback) {
+console.log("Hello" + name);
+Callback();
+}
+function sayBye () {
+  console.log("GoodBye!");
+}
+greet("Sameer", sayBye);
 
-//   if (error) {
-//     callback(" Something went wrong", null);
-//   } else {
-//     callback(null, { id: 1, name: "Sameer" });
-//   }
-// }
+// Synchronous Callback (Array Methods)
+let numbers = [1, 2, 3, 4];
+numbers.forEach(num => {
+  console.log("Number:", num);
+});
 
-// fetchData((err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("Data:", data);
-//   }
-// });
+// Asynchronous Callback (setTimeout)
+console.log("Start");
 
+setTimeout(() => {
+  console.log("This runs after 2 seconds");
+}, 2000);
 
-// // Basic Promise (Resolve / Reject)
-// let promise = new Promise((resolve, reject) => {
-//   let success = true;
+console.log("End");
 
-//   if (success) {
-//     resolve("Task completed!");
-//   } else {
-//     reject("Task failed!");
-//   }
-// });
+// Callback Hell (Nested API simulation)
+function getUser(callback) {
+  setTimeout(() => {
+    console.log("User fetched");
+    callback();
+  }, 1000);
+}
 
-// promise
-//   .then(result => console.log(result))   // success case
-//   .catch(error => console.log(error))    // failure case
-//   .finally(() => console.log("Done!"));
+function getPosts(callback) {
+  setTimeout(() => {
+    console.log("Posts fetched");
+    callback();
+  }, 1000);
+}
 
-
-// //   Simulating API Call with setTimeout
-// function fetchData() {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       let data = { id: 101, name: "Sameer" };
-//       resolve(data);
-//     }, 2000);
-//   });
-// }
-
-// fetchData()
-//   .then(res => console.log("Data received:", res))
-//   .catch(err => console.log("Error:", err));
-
-// //   Promise Chain (Avoid callback hell)
-// new Promise(resolve => resolve(5))
-//   .then(num => {
-//     console.log(num); // 5
-//     return num * 2;
-//   })
-//   .then(num => {
-//     console.log(num); // 10
-//     return num * 3;
-//   })
-//   .then(num => {
-//     console.log(num); // 30
-//   });
+function getComments() {
+  setTimeout(() => {
+    console.log("Comments fetched");
+  }, 1000);
+}
+// Nested callbacks → Callback Hell
+getUser(() => {
+  getPosts(() => {
+    getComments();
+  });
+});
 
 
-// // Promise.all()
-// let p1 = Promise.resolve("First done");
-// let p2 = new Promise(res => setTimeout(() => res("Second done"), 1000));
-// let p3 = Promise.resolve("Third done");
+// Error Handling in Callbacks
+function fetchData(callback) {
+  let error = true;
 
-// Promise.all([p1, p2, p3])
-//   .then(results => console.log("All results:", results))
-//   .catch(err => console.log("Error in one:", err));
+  if (error) {
+    callback(" Something went wrong", null);
+  } else {
+    callback(null, { id: 1, name: "Sameer" });
+  }
+}
 
-// // Promise.race
-// let fast = new Promise(res => setTimeout(() => res("Fast"), 500));
-// let Slow = new Promise(res => setTimeout(() => res("Slow"), 2000));  
+fetchData((err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Data:", data);
+  }
+});
 
-// promise.race([fast, Slow]).then(result => console.log(result));
 
-// // Promise.allSettled()
-// let p1 = Promise.resolve("Success");
-// let p2 = Promise.reject("Failure");
+// Basic Promise (Resolve / Reject)
+let promise = new Promise((resolve, reject) => {
+  let success = true;
 
-// Promise.allSettled([p1, p2]).then(results => console.log(results));
-// // Output
-// [
-//   { status: "fulfilled", value: "Success" },
-//   { status: "rejected", reason: "Failure" }
-// ]
+  if (success) {
+    resolve("Task completed!");
+  } else {
+    reject("Task failed!");
+  }
+});
 
-// // Promise.any()
-// let p1 = Promise.reject("Fail 1");
-// let p2 = new Promise(res => setTimeout(() => res("Success!"), 1000));
-// let p3 = Promise.reject("Fail 2");
+promise
+  .then(result => console.log(result))   // success case
+  .catch(error => console.log(error))    // failure case
+  .finally(() => console.log("Done!"));
 
-// Promise.any([p1, p2, p3])
-//   .then(result => console.log(result)) // "Success!"
-//   .catch(err => console.log("All failed:", err));
+
+//   Simulating API Call with setTimeout
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let data = { id: 101, name: "Sameer" };
+      resolve(data);
+    }, 2000);
+  });
+}
+
+fetchData()
+  .then(res => console.log("Data received:", res))
+  .catch(err => console.log("Error:", err));
+
+//   Promise Chain (Avoid callback hell)
+new Promise(resolve => resolve(5))
+  .then(num => {
+    console.log(num); // 5
+    return num * 2;
+  })
+  .then(num => {
+    console.log(num); // 10
+    return num * 3;
+  })
+  .then(num => {
+    console.log(num); // 30
+  });
+
+
+// Promise.all()
+let p1 = Promise.resolve("First done");
+let p2 = new Promise(res => setTimeout(() => res("Second done"), 1000));
+let p3 = Promise.resolve("Third done");
+
+Promise.all([p1, p2, p3])
+  .then(results => console.log("All results:", results))
+  .catch(err => console.log("Error in one:", err));
+
+// Promise.race
+let fast = new Promise(res => setTimeout(() => res("Fast"), 500));
+let Slow = new Promise(res => setTimeout(() => res("Slow"), 2000));  
+
+promise.race([fast, Slow]).then(result => console.log(result));
+
+// Promise.allSettled()
+let p1 = Promise.resolve("Success");
+let p2 = Promise.reject("Failure");
+
+Promise.allSettled([p1, p2]).then(results => console.log(results));
+// Output
+[
+  { status: "fulfilled", value: "Success" },
+  { status: "rejected", reason: "Failure" }
+]
+
+// Promise.any()
+let p1 = Promise.reject("Fail 1");
+let p2 = new Promise(res => setTimeout(() => res("Success!"), 1000));
+let p3 = Promise.reject("Fail 2");
+
+Promise.any([p1, p2, p3])
+  .then(result => console.log(result)) // "Success!"
+  .catch(err => console.log("All failed:", err));
 
 
 // All Question / Answer in Async/Await Example
@@ -336,7 +336,7 @@ greet().then(msg => console.log(msg));
 // Await Example
 function fetchData() {
   return new Promise(resolve => {
-    setTimeout(() => resolve("📦 Data received"), 2000);
+    setTimeout(() => resolve("Data received"), 2000);
   });
 }
 
@@ -527,3 +527,100 @@ document.querySelector("button").addEventListener("click", function() {
   console.log(this); // Button element
 });
 
+
+// 1: Simple Debounce Function
+function debounce(func, delay) {
+  let timer;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+
+// 2: Search Input (Like Remax Example)
+// Function to call API
+function fetchResults(query) {
+  console.log("Fetching API for:", query);
+}
+
+const debouncedSearch = debounce(fetchResults, 500);
+
+document.getElementById("search").addEventListener("input", (e) => {
+  debouncedSearch(e.target.value);
+});
+// Agar user fast typing kare: R → Re → Rem → Rema → Remax
+// ⚡ Without debouncing → API call 5 times
+// ⚡ With debouncing → API call only once for "Remax" after 500ms
+
+
+// 3: React Debouncing (Search Box)
+import React, { useState } from "react";
+
+function debounce(func, delay) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+}
+
+export default function SearchBox() {
+  const [text, setText] = useState("");
+
+  const handleSearch = debounce((value) => {
+    console.log("API call for:", value);
+  }, 600);
+
+  return (
+    <input
+      type="text"
+      placeholder="Search..."
+      value={text}
+      onChange={(e) => {
+        setText(e.target.value);
+        handleSearch(e.target.value);
+      }}
+    />
+  );
+}
+
+
+// Debounce Example – Search Box
+function debounce(func, delay) {
+  let timer;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+const fetchSearch = debounce((query) => {
+  console.log("API call for:", query);
+}, 500);
+
+document.getElementById("search").addEventListener("input", (e) => {
+  fetchSearch(e.target.value);
+});   //User stops typing → API called once
+
+
+// Throttle Example – Scroll Event
+function throttle(func, limit) {
+  let lastCall = 0;
+  return function(...args) {
+    const now = Date.now();
+    if (now - lastCall >= limit) {
+      lastCall = now;
+      func.apply(this, args);
+    }
+  };
+}
+
+const handleScroll = throttle(() => {
+  console.log("Scroll event at:", window.scrollY);
+}, 1000);
+
+window.addEventListener("scroll", handleScroll);
+// Even if scroll triggers 100 times per second → Runs once every 1 sec
