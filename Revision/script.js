@@ -56,31 +56,31 @@
 // btn.addEventListener("click", size40);
 
 
-const myName = document.getElementById("my-name");
-const btn = document.getElementById('my-btn');
+// const myName = document.getElementById("my-name");
+// const btn = document.getElementById('my-btn');
 
-function makeCounter() {
-    let count = 1;
+// function makeCounter() {
+//     let count = 1;
 
-    function  increment() {
-        console.log(count++);
-    }
-    return increment;
-}
-const counter1 = makeCounter();
-counter1();
-counter1();
-counter1();
-counter1()
+//     function  increment() {
+//         console.log(count++);
+//     }
+//     return increment;
+// }
+// const counter1 = makeCounter();
+// counter1();
+// counter1();
+// counter1();
+// counter1()
 
 
 // All Q / A Promises
 
-let a = 10;
-    let b = 30;
+// let a = 10;
+//     let b = 30;
 
-    let result = a + b;
-  console.log(result);
+//     let result = a + b;
+//   console.log(result);
   
 
 
@@ -103,3 +103,29 @@ let a = 10;
 //     console.log(error);
 //   });
 //   console.log(result);
+
+// // simulating API calls with setTimeout
+// function fetchData() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() =>{
+//             let data = { id: 232, name: "sameer" };
+//             resolve(data);
+//         }, 2000);
+//     });
+// }
+// fetchData()
+// .then(res => console.log("Data received:",  res))
+// .catch(err => console.log("Error:", err));
+
+// Async / Await Q:1
+function fetchData() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Data recieved"), 2000);
+    });
+}
+async function getData() {
+    console.log("fetching...");
+    let result = await fetchData();
+    console.log(result);
+}
+getData();
