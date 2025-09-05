@@ -129,3 +129,21 @@ async function getData() {
     console.log(result);
 }
 getData();
+
+// Example 3: Error Handling with try...catch
+function fetchData() {
+    return new Promise((_, reject) => {
+        setTimeout (() => reject ("failed to fetch user"), 2000);
+    });
+}
+async function getData() {
+    try {
+        let user = await fetchUser();
+         console.log(user);
+    } catch (error) {
+        console.log("Error caught:", error);
+    } finally {
+        console.log("operation finished");
+    }
+}
+getData();
