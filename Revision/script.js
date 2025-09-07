@@ -117,33 +117,137 @@
 // .then(res => console.log("Data received:",  res))
 // .catch(err => console.log("Error:", err));
 
-// Async / Await Q:1
-function fetchData() {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve("Data recieved"), 2000);
-    });
-}
-async function getData() {
-    console.log("fetching...");
-    let result = await fetchData();
-    console.log(result);
-}
-getData();
+// // Async / Await Q:1
+// function fetchData() {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve("Data recieved"), 2000);
+//     });
+// }
+// async function getData() {
+//     console.log("fetching...");
+//     let result = await fetchData();
+//     console.log(result);
+// }
+// getData();
 
-// Example 3: Error Handling with try...catch
-function fetchData() {
-    return new Promise((_, reject) => {
-        setTimeout (() => reject ("failed to fetch user"), 2000);
-    });
-}
-async function getData() {
-    try {
-        let user = await fetchUser();
-         console.log(user);
-    } catch (error) {
-        console.log("Error caught:", error);
-    } finally {
-        console.log("operation finished");
+// // Example 3: Error Handling with try...catch
+// function fetchData() {
+//     return new Promise((_, reject) => {
+//         setTimeout (() => reject ("failed to fetch user"), 2000);
+//     });
+// }
+// async function getData() {
+//     try {
+//         let user = await fetchUser();
+//          console.log(user);
+//     } catch (error) {
+//         console.log("Error caught:", error);
+//     } finally {
+//         console.log("operation finished");
+//     }
+// }
+// getData();
+
+// // Code Example: Debouncing
+// function debounce(fn, delay) {
+//     let timer;
+//     return function (...args) {
+//         clearTimeout(timer);
+//         timer=setTimeout(() => {
+//             fn.apply(this, args);
+//         }, delay);
+//     };
+// }
+
+// function searchQuery(Query) {
+//     console.log("API call with:", Query);
+// }
+
+// const debouncedSearch = debounce(searchQuery, 500);
+
+// debouncedSearch("p");
+// debouncedSearch("pe")
+// debouncedSearch("pet");
+// debouncedSearch("peter");
+
+
+// Code Example: Throttling (in Browser)
+function throttle(fn, limit) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastCall >= limit) {
+      lastCall = now;
+      fn.apply(this, args);
     }
+  };
 }
-getData();
+
+function logScroll() {
+  console.log("Scroll event at:", Date.now());
+}
+
+const throttledScroll = throttle(logScroll, 1000);
+
+window.addEventListener("scroll", throttledScroll);
+
+// Async/Await
+async function fetchData() {
+  try {
+    const res = await fetch("https://api.example.com/data");
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+fetchData();
+
+
+// Callback
+function greet(name, callback) {
+  console.log("Hello " + name);
+  callback();
+}
+
+greet("Sameer", function() {
+  console.log("Callback executed!");
+});
+
+
+// this.keyword
+console.log(this); // Global → window (browser)
+
+const obj = {
+  name: "Sameer",
+  sayHi: function() {
+    console.log(this.name); // "Sameer"
+  },
+};
+obj.sayHi();
+
+const arrow = () => console.log(this);
+arrow(); // In arrow, `this` = parent scope
+
+
+// Closure
+function outer() {
+  let counter = 0;
+  return function inner() {
+    counter++;
+  };
+}
+const fn = outer();
+fn();
+fn();
+
+// Debouncing
+function debounce(fn, delay) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+const debouncedLog = debounce(() => console.log("Run!"), 500);
+window.addEventListener("resize", debouncedLog);
