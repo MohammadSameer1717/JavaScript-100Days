@@ -251,3 +251,18 @@ function debounce(fn, delay) {
 }
 const debouncedLog = debounce(() => console.log("Run!"), 500);
 window.addEventListener("resize", debouncedLog);
+
+// Throttling
+function throttle(fn, limit) {
+  let lastCall = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - lastCall >= limit) {
+      lastCall = now;
+      fn(...args);
+    }
+  };
+}
+
+const throttledScroll = throttle(() => console.log("Scroll!"), 1000);
+window.addEventListener("scroll", throttledScroll);
