@@ -266,3 +266,10 @@ function throttle(fn, limit) {
 
 const throttledScrol = throttle(() => console.log("Scroll!"), 1000);
 window.addEventListener("scroll", throttledScrol);
+
+
+// Example 
+const btn = document.getElementById("btn");
+btn.addEventListener("click", () => {
+  alert("Button clicked!");
+});
