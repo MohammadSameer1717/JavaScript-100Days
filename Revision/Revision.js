@@ -627,4 +627,43 @@
 // // Even if scroll triggers 100 times per second → Runs once every 1 sec
 
 
-// Closure
+// Example 1: Basic Closure
+function outer() {
+  let count = 0; // variable inside outer function
+  function inner() {
+    count++;
+    console.log("Count:", count);
+  }
+  return inner;
+}
+
+const counter = outer(); // returns inner function
+
+counter(); // Count: 1
+counter(); // Count: 2
+counter(); // Count: 3
+
+
+// Example 2: Private Variables
+function createBankAccount(initialBalance) {
+  let balance = initialBalance; 
+
+  return {
+    deposit: function (amount) {
+      balance += amount;
+      console.log("Deposited:", amount, "New Balance:", balance);
+    },
+    withdraw: function (amount) {
+      if (amount <= balance) {
+        balance -= amount;
+        console.log("Withdrawn:", amount, "Remaining Balance:", balance);
+      } else {
+        console.log("Insufficient balance");
+      }
+    }
+  };
+}
+
+const account = createBankAccount(1000);
+account.deposit(500);  // Deposited: 500 New Balance: 1500
+account.withdraw(200); // Withdrawn: 200 Remaining Balance: 1300
