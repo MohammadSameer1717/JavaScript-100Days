@@ -667,3 +667,29 @@ function createBankAccount(initialBalance) {
 const account = createBankAccount(1000);
 account.deposit(500);  // Deposited: 500 New Balance: 1500
 account.withdraw(200); // Withdrawn: 200 Remaining Balance: 1300
+
+// can you explain closure with a react word examp
+ function createCounter() {
+  let count = 0; // private variable (not accessible outside)
+  
+  return {
+    increment: function() {
+      count++;
+      return count;
+    },
+    decrement: function() {
+      count--;
+      return count;
+    },
+    getCount: function() {
+      return count;
+    }
+  };
+}
+
+const counter1 = createCounter();
+
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+console.log(counter.decrement()); // 1
+console.log(counter.getCount());  // 1
