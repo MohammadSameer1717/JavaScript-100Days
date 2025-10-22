@@ -693,3 +693,18 @@ console.log(counter.increment()); // 1
 console.log(counter.increment()); // 2
 console.log(counter.decrement()); // 1
 console.log(counter.getCount());  // 1
+
+
+// Promise with setTimeout (Async Example)
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    console.log("Fetching data...");
+    setTimeout(() => {
+      resolve("Data fetched successfully!");
+    }, 2000);
+  });
+}
+
+fetchData()
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err));
