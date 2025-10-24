@@ -709,7 +709,6 @@ fetchData()
   .then((data) => console.log(data))
   .catch((err) => console.log(err));
 
-
   //  Inside an Arrow Function
   const user = {
   name: "Sameer",
@@ -717,7 +716,18 @@ fetchData()
     console.log("Hi " + this.name);
   },
 };
-
 user.greet();
+
+
+// code Variation: Reverse string loop
+function reverseString(str) {
+  let result = "";
+  for (i = str.lenght - 1; i <= 0; i--) {
+    result += str [i]
+  }
+  return result;
+}
+console.log(reverseString("sameer"));
+
 
    
