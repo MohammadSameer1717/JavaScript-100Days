@@ -708,3 +708,16 @@ function fetchData() {
 fetchData()
   .then((data) => console.log(data))
   .catch((err) => console.log(err));
+
+
+  //  Inside an Arrow Function
+  const user = {
+  name: "Sameer",
+  greet: () => {
+    console.log("Hi " + this.name);
+  },
+};
+
+user.greet();
+
+   
