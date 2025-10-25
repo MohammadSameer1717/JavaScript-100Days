@@ -757,5 +757,18 @@ console.log(reverseVowels("sameer"));      // semaer
 console.log(reverseVowels("javascript"));  // jivascrept
 console.log(reverseVowels("hello world")); // holle werld
 
+// Reverse Only Vowels (Advanced & Clean Version)
+function reverseOnlyVowels(str) {
+  const vowels = str.match(/[aeiou]/gi); // extract vowels
+  if (!vowels) return str; // if no vowels, return same string
+
+  return str.replace(/[aeiou]/gi, () => vowels.pop());
+}
+
+console.log(reverseOnlyVowels("sameer")); // semaer
+console.log(reverseOnlyVowels("education")); // odacetuin
+console.log(reverseOnlyVowels("developer")); // developer → develepor
+
+
 
    
