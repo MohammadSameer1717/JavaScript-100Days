@@ -729,5 +729,33 @@ function reverseString(str) {
 }
 console.log(reverseString("sameer"));
 
+// Reverse String but Only Vowels (Keep Others Same)
+function reverseVowels(str) {
+  const vowels = "aeiouAEIOU";
+  const chars = str.split("");
+  let left = 0;
+  let right = chars.length - 1;
+
+  while (left < right) {
+    if (!vowels.includes(chars[left])) {
+      left++;
+      continue;
+    }
+    if (!vowels.includes(chars[right])) {
+      right--;
+      continue;
+    }
+
+    // swap vowels
+    [chars[left], chars[right]] = [chars[right], chars[left]];
+    left++;
+    right--;
+  }
+  return chars.join("");
+}
+console.log(reverseVowels("sameer"));      // semaer
+console.log(reverseVowels("javascript"));  // jivascrept
+console.log(reverseVowels("hello world")); // holle werld
+
 
    
