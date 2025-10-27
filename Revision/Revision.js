@@ -729,6 +729,7 @@ function reverseString(str) {
 }
 console.log(reverseString("sameer"));
 
+
 // Reverse String but Only Vowels (Keep Others Same)
 function reverseVowels(str) {
   const vowels = "aeiouAEIOU";
@@ -745,7 +746,6 @@ function reverseVowels(str) {
       right--;
       continue;
     }
-
     // swap vowels
     [chars[left], chars[right]] = [chars[right], chars[left]];
     left++;
@@ -753,21 +753,37 @@ function reverseVowels(str) {
   }
   return chars.join("");
 }
-console.log(reverseVowels("sameer"));      // semaer
-console.log(reverseVowels("javascript"));  // jivascrept
-console.log(reverseVowels("hello world")); // holle werld
+console.log(reverseVowels("sameer"));  
+console.log(reverseVowels("javascript"));  
+console.log(reverseVowels("hello world")); 
 
-// Reverse Only Vowels (Advanced & Clean Version)
 function reverseOnlyVowels(str) {
-  const vowels = str.match(/[aeiou]/gi); // extract vowels
+  const vowels = str.match(/[aeiou]/gi); 
   if (!vowels) return str; // if no vowels, return same string
 
   return str.replace(/[aeiou]/gi, () => vowels.pop());
 }
+console.log(reverseOnlyVowels("sameer")); 
+console.log(reverseOnlyVowels("education")); 
+console.log(reverseOnlyVowels("developer")); 
 
-console.log(reverseOnlyVowels("sameer")); // semaer
-console.log(reverseOnlyVowels("education")); // odacetuin
-console.log(reverseOnlyVowels("developer")); // developer → develepor
+// Q : reverse 
+function reverseAndCountVowels(str) {
+  let reversed = "";
+  let count = 0;
+  const vowels = "aeiouAEIOU";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+    if (vowels.includes(str[i])) count++;
+  }
+
+  return { reversed, vowelCount: count };
+}
+
+console.log(reverseAndCountVowels("sameer"));
+// Output: { reversed: 'reemas', vowelCount: 3 }
+
 
 
 
