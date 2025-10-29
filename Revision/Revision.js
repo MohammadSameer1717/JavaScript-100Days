@@ -784,6 +784,18 @@ function reverseAndCountVowels(str) {
 console.log(reverseAndCountVowels("sameer"));
 // Output: { reversed: 'reemas', vowelCount: 3 }
 
+function main () {
+    var name = "peter";
+    function sayName() {
+        console.log(name);
+    }
+    return sayName;
+}
+let fn = main();
+fn();
+fn();
+
+
 
 
 
