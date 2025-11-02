@@ -796,6 +796,41 @@ fn();
 fn();
 
 
+// Express.js Full Example Code
+import express from "express";
+const app = express();
+const PORT = 7777;
+
+app.use(express.json());
+
+// Static route
+app.get("/abc", (req, res) => {
+  res.send("Hello from /abc route!");
+});
+
+// Query parameter route
+app.get("/user", (req, res) => {
+  console.log("Query params:", req.query);
+  res.send(`Received query params: ${JSON.stringify(req.query)}`);
+});
+
+// Dynamic route
+app.get("/user/:userId", (req, res) => {
+  console.log("Route params:", req.params);
+  res.send(`User ID from params: ${req.params.userId}`);
+});
+
+// Multiple dynamic params
+app.get("/user/:userId/order/:orderId", (req, res) => {
+  console.log("Params:", req.params);
+  res.send(`User: ${req.params.userId}, Order: ${req.params.orderId}`);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
+
 
 
 
