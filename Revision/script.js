@@ -9,15 +9,15 @@
 // fn();
 // fn();
 
- function main () {
-    var name = "Sameer peter ";
-    function sayName() {
-        console.log(name);
-    }
-    return sayName;
-}
-let fn = main();
-fn();
+//  function main () {
+//     var name = "Sameer peter ";
+//     function sayName() {
+//         console.log(name);
+//     }
+//     return sayName;
+// }
+// let fn = main();
+// fn();
 
 
 // function main (name) {
