@@ -1,50 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Form</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div>
-        <div>
-            <img src="assets/signup-background.svg" alt=""/>
-            <img src="assets/teamwork.svg" alt=""/> 
+  <main class="auth-page">
+    <section class="visuals" aria-hidden="true">
+      <!-- <img src="assets/signup-background.svg" alt="Decorative background" /> -->
+      <img src="form.img2.png" alt="Team illustration" />
+    </section>
+
+    <section class="auth-form">
+      <h1>Login</h1>
+      <p>Access 300+ courses, tutorials and livestreams</p>
+
+      <form action="#" method="post" autocomplete="on" novalidate>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          />
         </div>
 
-        <div>
-            <h1>Login</h1>
-            <p>Access to 300+ of courses, tutorials and livestreams</p>
-            <form action="">
-                <div>
-                    <div>
-
-                        <div>
-                            <input type="=email" placeholder="Email Address"/>
-                        </div>
-                           <div>
-                    <div>
-
-                        <div>
-                            <input type="=text" placeholder="Password"/>
-                        </div>
-                        <button>Sign in</button>
-                    </div>
-                </div>
-            </form>
-            <div>
-                <p>Dont't have an account?<a>Sign Up</a></p>
-                <p>Forget password?<a>Reset Password</a></p>
-                <p>Dont't have a password yet?<a>Set Password</a></p>
-            </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+            required
+            autocomplete="current-password"
+          />
         </div>
-    </div>
-    <button>Sign Up</button>
+
+        <div class="form-actions">
+          <button type="submit">Sign in</button>
+        </div>
+      </form>
+
+      <div class="links">
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+        <p>Forgot password? <a href="#">Reset Password</a></p>
+        <p>Don't have a password yet? <a href="#">Set Password</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <button type="button" onclick="location.href='#'">Sign Up</button>
+  </footer>
 </body>
 </html>
-
 
 
 

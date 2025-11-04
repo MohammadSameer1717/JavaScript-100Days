@@ -12,12 +12,12 @@
 //   console.log("you cannot be Vote now ");
 // };
 
-  age = 19.5;
-if (age = 20) {
-  console.log("you can be Vote now");
-} else {
-  console.log("you cannot be Vote now ");
-};
+//   age = 19.5;
+// if (age = 20) {
+//   console.log("you can be Vote now");
+// } else {
+//   console.log("you cannot be Vote now ");
+// };
 
 // // Example: 3 if-else if-else
 //   let marks = 77;
